@@ -1,5 +1,5 @@
 # cprcoach - A CPR training tool built on Activ5
-##Installation/Running Instructions
+## Installation/Running Instructions
 - Clone our GitHub Repository onto your local desktop
 - Cd into the CPR Connector folder and run `npm install` to retrieve all necessary packages
 - Cd into the CPR Processor folder and run `npm install` to retrieve all necessary packages
@@ -10,7 +10,7 @@
 The reason that we almost have 2 projects running here is because CPR Connector is essentially a modified version of the Activ5 SDK JavaScript Example. It is tweaked in that it connects to a websocket that CPR Processor opens (this data pipe is on port 4300). CPR Processor recieves all data from the CPR Connector, and then has multiple scripts which control its use and its display. We essentially modified the Activ5 SDK JavaScript Example in such a way that it would connect to the Activ5 and simply forward our CPR Processor project any pressure readings from the Activ5.
 
 
-#Project Information
+# Project Information
 ## Inspiration
 Every year, about 600,000 cases of cardiac arrest happen in the U.S., of which 395,000 cases occur outside of a hospital setting. Research has indicated that the amount of time between cardiac arrest and CPR commencing is directly correlated to survival rates. The problem: less than 3% of the U.S. population receives CPR training every year. We built this app with the purpose of helping people learn and practice effective CPR techniques. 
 
