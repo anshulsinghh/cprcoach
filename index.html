@@ -1,0 +1,450 @@
+<!doctype html>
+<html>
+  <head>
+    <!--<link rel="stylesheet" href="styles.css" />-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <style>
+        #title {
+          font-family: 'Roboto Mono';
+          position: fixed;
+          top: 5%;
+          left: 35%;
+          font-size:70px;
+          font-weight: bold;
+        }
+        #bpmHeader{
+          font-family: 'Roboto Mono';
+          position: fixed;
+          top: 20%;
+          left: 13%;
+          font-size:70px;
+        }
+        #bpmLabel{
+          font-family: 'Roboto Mono';
+          position: fixed;
+          top: 32%;
+          left: 16%;
+          font-size:70px;
+        }
+        #forceHeader{
+          font-family: 'Roboto Mono';
+          position: fixed;
+          top: 50%;
+          left: 4.5%;
+          font-size:70px;
+          line-height: 70px;
+          word-spacing: -30px;
+        }
+        #forceLabel{
+          font-family: 'Roboto Mono';
+          position: fixed;
+          top: 69%;
+          left: 16%;
+          font-size:70px;
+        }
+
+        #analyticsHeader{
+          font-family: 'Roboto Mono';
+          position: fixed;
+          top: 28%;
+          right: 9%;
+          font-size:50px;
+          line-height: 50px;
+        }
+
+        #analyticsForce{
+          font-family: 'Roboto Mono';
+          position: fixed;
+          top: 62.5%;
+          right: 10.25%;
+          font-size:30px;
+          line-height: 50px;
+        }
+
+        #analyticsBox{
+          /*display: inline-block;*/
+          width: 300px;
+          height: 490px;
+          border: 1px solid #000;
+          /*text-align: center;*/
+          position: fixed;
+          top: 37%;
+          right: 7.75%;
+        }
+
+        #analyticsBPM{
+          font-family: 'Roboto Mono';
+          position: fixed;
+          top: 37.5%;
+          right: 11.5%;
+          font-size:30px;
+          line-height: 50px;
+        }
+
+        #endButton{
+          border-color: black;
+          background-color: white;
+          font-family: 'Roboto Mono';
+          font-size:20px;
+          padding: 8px 32px;
+          text-align: center;
+          position: fixed;
+          right: 20%;
+          top: 20%
+        }
+        #resetButton{
+          border-color: black;
+          background-color: white;
+          font-family: 'Roboto Mono';
+          font-size:20px;
+          padding: 8px 22px;
+          text-align: center;
+          position: fixed;
+          right: 10%;
+          top: 20%
+        }
+        #endButton:hover {
+          background-color: black; /* Green */
+          color: white;
+        }
+        #resetButton:hover {
+          background-color: black; /* Green */
+          color: white;
+        }
+        #heart {
+          width:450px;
+          position: fixed;
+          top: 27%;
+          left: 33%;
+          /* bring your own prefixes  30, 37*/
+        }
+
+        .run-animation {
+          animation: 0.8s beatHeart; 
+        }
+
+        @keyframes beatHeart {
+          0% {
+            transform: scale(1);
+          }
+          25% {
+            transform: scale(1.1);
+          }
+          40% {
+            transform: scale(1);
+          }
+          60% {
+            transform: scale(1.1);
+          }
+          100% {
+            transform: scale(1);
+          }
+        }
+
+
+        .spinner {
+          margin: 100px auto 0;
+          width: 70px;
+          text-align: center;
+        }
+
+        .spinner > div {
+          width: 18px;
+          height: 18px;
+          background-color: #333;
+
+          border-radius: 100%;
+          display: inline-block;
+          -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+          animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+        }
+
+        .spinner .bounce1 {
+          -webkit-animation-delay: -0.32s;
+          animation-delay: -0.32s;
+        }
+
+        .spinner .bounce2 {
+          -webkit-animation-delay: -0.16s;
+          animation-delay: -0.16s;
+        }
+
+        @-webkit-keyframes sk-bouncedelay {
+          0%, 80%, 100% { -webkit-transform: scale(0) }
+          40% { -webkit-transform: scale(1.0) }
+        }
+
+        @keyframes sk-bouncedelay {
+          0%, 80%, 100% { 
+            -webkit-transform: scale(0);
+            transform: scale(0);
+          } 40% { 
+            -webkit-transform: scale(1.0);
+            transform: scale(1.0);
+          }
+        }
+
+
+        #loadingSpinner1{
+          position: fixed;
+          top: 40%;
+          right: 16%;
+          visibility: visible;
+        }
+
+        #loadingSpinner2{
+          position: fixed;
+          top: 65.5%;
+          right: 16%;
+          visibility: visible;
+        }
+
+        #avgBPMLabel{
+          font-family: 'Roboto Mono';
+          position: fixed;
+          top: 48.5%;
+          right: 17.3%;
+          font-size:50px;
+          visibility: hidden;
+        }
+
+        #avgForceLabel{
+          font-family: 'Roboto Mono';
+          position: fixed;
+          top: 73.5%;
+          right: 17.3%;
+          font-size:50px;
+          visibility: hidden;
+        }
+
+        .dot {
+          height: 30px;
+          width: 30px;
+          border-radius: 50%;
+          display: inline-block;
+          position: fixed;
+        }
+
+        /* Tooltip container */
+        .tooltip {
+          position: fixed;
+          display: inline-block;
+          font-size:40px;
+        }
+
+        .tooltip .tooltiptext {
+          visibility: hidden;
+          width: 1200px;
+          background-color: #2c3e50;
+          color: #fff;
+          font-size:20px;
+          text-align: left;
+          padding: 5px 0;
+          padding-left: 5px;
+          padding-right: 5px;
+          position: absolute;
+          z-index: 1;
+          top: -5px;
+          right: 110%;
+          z-index: 900;
+        }
+
+        .tooltip .tooltiptext::after {
+          content: "";
+          position: absolute;
+          top: 10%;
+          left: 100%;
+          margin-top: -5px;
+          border-width: 5px;
+          border-style: solid;
+          border-color: transparent transparent transparent #2C3E50;
+        }
+
+        /* Show the tooltip text when you mouse over the tooltip container */
+        .tooltip:hover .tooltiptext {
+          visibility: visible;
+        }
+
+        #questionCircle {
+            display: block;
+            height: 60px;
+            width: 60px;
+            line-height: 60px;
+
+            -moz-border-radius: 30px; /* or 50% */
+            border-radius: 30px; /* or 50% */
+            border: 1px solid #000;
+
+            position: fixed;
+            top: 1%;
+            right: 1%;
+
+            color: white;
+            text-align: center;
+            font-size: 2em;
+        }
+    </style>
+
+    <title>CPR Trainer</title>
+  </head>
+  <body>
+    <div id="title">CPR Coach</div>
+
+    <div id="bpmHeader">BPM</div>
+    <div id="forceHeader"> Pounds of<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbspForce</div>
+
+
+    <div id="bpmLabel">0</div>
+    <div id="forceLabel">0</div>
+
+    <button id="endButton" type="button" onclick="end()">End</button>
+    <button id="resetButton" type="button" onclick="reset()">Reset</button>
+
+
+    <div id="analyticsHeader">Analytics</div>
+    <div id="analyticsForce">Average Force</div>
+    <div id="analyticsBPM">Average BPM</div>
+
+    <div id="analyticsBox">&nbsp</div>
+
+
+    <div id="avgBPMLabel">0</div>
+    <div id="avgForceLabel">0</div>
+
+    <div class="spinner" id="loadingSpinner1">
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
+
+    <div class="spinner" id="loadingSpinner2">
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
+
+    <div class="container">
+      <img id="heart" src="https://cdn.discordapp.com/attachments/225097898734387200/637892505630670879/unknown.png" class="human-heart run-animation" alt="human heart" />
+    </div>
+
+    <div class="tooltip" style="top: 1.6%; right: 2.6%; font-family: 'Times New Roman';">?
+      <span class="tooltiptext"><div style="font-size:30px; color:  #bdc3c7;">General:</div>
+        The CPR Coach was designed for the purpose of training an individual in CPR via practice and
+         feedback. The activ5 device is readily accessible to a classroom environment or even in your 
+         own home. By using the activ5 device to practice CPR and understand the summary analysis it 
+         will provide, you can become skilled in the physical performance required to perform CPR. 
+         You will learn to adjust your rhythm and strength as well as developing a muscle memory for 
+         the performance.<br><br> 
+         <div style="font-size:30px; color: #bdc3c7;">Usage:</div>
+        The performance analysis will begin as soon as the first pump is administered to the activ5 
+        device. On the left side, a live feed of BPM (Beats per minute) and pounds of force will 
+        appear and will consistently update to give the user an understanding of their current 
+        performance. If you are conducting CPR correctly the indicators next to these numbers will 
+        appear green (Recommended BPM = 100 – 120 and Recommended Force = 100 – 125). If you are 
+        outside this range but are close, the indicator will be yellow. If you are far outside the 
+        range the indicator will be red. Once you have finished with your performance, click the 
+        “end” button on the right side; this will then reveal your average BPM and average force. 
+        Click “reset” to restart the program and try again. Watch a tutorial first to understand
+        the basics of CPR here: <a style="color:#e74c3c" href="https://www.youtube.com/watch?v=XpEvQuOWME0">Video Link</a></span>
+    </div>
+
+    <div id="questionCircle" style="z-index: -900;"></div>
+
+    <span id="bpmIndicator" class="dot" style="background-color: #95a5a6; z-index: -900; top: 36.25%; left: 12%;"></span>
+    <span id="forceIndicator" class="dot" style="background-color: #95a5a6; top: 73%; left: 12%;"></span>
+
+
+
+
+
+
+
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var firstRun = true;
+      var socket = io();
+      function end() {   
+        socket.emit('end', "test");
+
+        document.getElementById("loadingSpinner1").style.visibility = "hidden";
+        document.getElementById("loadingSpinner2").style.visibility = "hidden";
+
+        document.getElementById("avgBPMLabel").style.visibility = "visible";
+        document.getElementById("avgForceLabel").style.visibility = "visible";
+      }
+
+      function reset() {
+        firstRun = true;
+        socket.emit('reset', "test");
+        document.getElementById("bpmLabel").innerHTML = "0";
+        document.getElementById("forceLabel").innerHTML = "0";
+
+        document.getElementById("avgBPMLabel").style.visibility = "hidden";
+        document.getElementById("avgForceLabel").style.visibility = "hidden";
+
+        document.getElementById("loadingSpinner1").style.visibility = "visible";
+        document.getElementById("loadingSpinner2").style.visibility = "visible";
+
+        document.getElementById("bpmIndicator").style.backgroundColor="#95a5a6";
+        document.getElementById("forceIndicator").style.backgroundColor="#95a5a6";
+      }
+
+     
+      socket.on('bpm', function(bpm) {
+        if (!firstRun) {
+          document.getElementById("bpmLabel").innerHTML = bpm;
+
+
+          var bpm = parseInt(bpm);
+          if (bpm >= 100 && bpm <= 120) {
+            document.getElementById("bpmIndicator").style.backgroundColor="#009432";
+          } else if (bpm >= 90 && bpm <= 130) {
+            document.getElementById("bpmIndicator").style.backgroundColor="#FFC312";
+          } else {
+            if (bpm != 0) {
+              document.getElementById("bpmIndicator").style.backgroundColor="#EA2027";
+            } else {
+              document.getElementById("bpmIndicator").style.backgroundColor="#95a5a6";
+            }
+            
+          }
+        }
+        firstRun = false;
+      });
+
+      socket.on('force', function(force) {
+        if (!isNaN(force)) {
+          document.getElementById("forceLabel").innerHTML = force;
+
+          var force = parseInt(force);
+          if (force >= 100 && force <= 125) {
+            document.getElementById("forceIndicator").style.backgroundColor="#009432";
+          } else if (force >= 90 && force <= 135) {
+            document.getElementById("forceIndicator").style.backgroundColor="#FFC312";
+          } else {
+            document.getElementById("forceIndicator").style.backgroundColor="#EA2027";
+          }
+        }
+      });
+
+      socket.on('beat', function(endBPM) {
+        var element = document.getElementById("heart");
+        element.classList.remove("run-animation");
+        void element.offsetWidth; // trigger a DOM reflow
+        element.classList.add("run-animation");
+      });
+
+
+      socket.on('endBPM', function(endBPM) {
+        document.getElementById("avgBPMLabel").innerHTML = endBPM;
+      });
+
+
+      socket.on('endAvgPressure', function(endAvgPressure) {
+        document.getElementById("avgForceLabel").innerHTML = endAvgPressure;
+      });
+    </script>
+  </body>
+</html>
