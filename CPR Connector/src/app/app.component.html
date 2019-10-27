@@ -1,0 +1,45 @@
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<div class="container">
+
+    <!-- Scanning For Device Button -->
+    <button name="connectButton" *ngIf="!devices[0]" (click)="connect(0)">Search for Device 1</button>
+
+    <!-- Device Data & Buttons -->
+    <div *ngIf="devices[0]" class="device-container">
+        <div class="data-container">
+            <span>{{devices[0].device.name}}</span>
+            <span id="devicedata">IS{{isomData[0]}}</span>
+        </div>
+
+        <button (click)="startIsometric(0)">Request Isometric</button>
+        <button (click)="tare(0)">Request Tare</button>
+        <button (click)="stop(0)">Request Stop</button>
+        <button (click)="deviceOneIsEvergreenMode = !deviceOneIsEvergreenMode; evergreenMode(0, deviceOneIsEvergreenMode)">
+            {{deviceOneIsEvergreenMode ? 'Switch Off Evergreen' : 'Switch On Evergreen'}}
+        </button>
+        <button (click)="disconnect(0)">Disconnect</button>
+    </div>
+
+    <!-- Scanning For Device Button -->
+    <button *ngIf="!devices[1]" (click)="connect(1)">Search for Device 2</button>
+
+    <!-- Device Data & Buttons -->
+    <div *ngIf="devices[1]" class="device-container">
+        <div class="data-container">
+            <span>{{devices[1].device.name}}</span>
+            <span>IS{{isomData[1]}}</span>
+        </div>
+
+        <button (click)="startIsometric(1)">Request Isometric</button>
+        <button (click)="tare(1)">Request Tare</button>
+        <button (click)="stop(1)">Request Stop</button>
+        <button (click)="deviceTwoIsEvergreenMode = !deviceTwoIsEvergreenMode; evergreenMode(1, deviceTwoIsEvergreenMode)">
+            {{deviceTwoIsEvergreenMode ? 'Switch Off Evergreen' : 'Switch On Evergreen'}}
+        </button>
+        <button (click)="disconnect(1)">Disconnect</button>
+    </div>
+  
+</div>
+</body>
