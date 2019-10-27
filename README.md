@@ -9,6 +9,7 @@
 
 The reason that we almost have 2 projects running here is because CPR Connector is essentially a modified version of the Activ5 SDK JavaScript Example. It is tweaked in that it connects to a websocket that CPR Processor opens (this data pipe is on port 4300). CPR Processor recieves all data from the CPR Connector, and then has multiple scripts which control its use and its display. We essentially modified the Activ5 SDK JavaScript Example in such a way that it would connect to the Activ5 and simply forward our CPR Processor project any pressure readings from the Activ5.
 
+A video demoing the project and its features can be found on: https://www.youtube.com/watch?v=P_IaSZYo0xc
 
 # Project Information
 ## Inspiration
