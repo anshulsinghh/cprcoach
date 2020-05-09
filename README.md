@@ -1,4 +1,6 @@
 # CPR Coach - A CPR training tool built on Activ5
+This was a joint project between Zane Calini, Anshul Singh, Alec Valdez, and Julius Velasquez. We made this project for UC San Diego's SD Hacks 2019, and we won the Best Use of Activ5 Award.
+https://devpost.com/software/cpr-coach
 
 ## Inspiration
 Every year, about 600,000 cases of cardiac arrest happen in the U.S., of which 395,000 cases occur outside of a hospital setting. Research has indicated that the amount of time between cardiac arrest and CPR commencing is directly correlated to survival rates. The problem: less than 3% of the U.S. population receives CPR training every year. We built this app with the purpose of helping people learn and practice effective CPR techniques. 
