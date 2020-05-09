@@ -1,17 +1,5 @@
-# cprcoach - A CPR training tool built on Activ5
-## Installation/Running Instructions
-- Clone our GitHub Repository onto your local desktop
-- Cd into the CPR Connector folder and run `npm install` to retrieve all necessary packages
-- Cd into the CPR Processor folder and run `npm install` to retrieve all necessary packages
-- Run `node index.js` in the CPR Processor folder to set up the recieving end of all Activ5 data, and to set up our user interface on `http://localhost:3030/`
-- Run `npm start` in the CPR Connector folder to start all communications with the Activ5, this is essentially running the Example javascript SDK app
-- Connect to the Activ5 using the website on `http://localhost:4200/`, and then navigate back to `http://localhost:3030/`. Everything should then be running.
+# CPR Coach - A CPR training tool built on Activ5
 
-The reason that we almost have 2 projects running here is because CPR Connector is essentially a modified version of the Activ5 SDK JavaScript Example. It is tweaked in that it connects to a websocket that CPR Processor opens (this data pipe is on port 4300). CPR Processor recieves all data from the CPR Connector, and then has multiple scripts which control its use and its display. We essentially modified the Activ5 SDK JavaScript Example in such a way that it would connect to the Activ5 and simply forward our CPR Processor project any pressure readings from the Activ5.
-
-A video demoing the project and its features can be found on: https://www.youtube.com/watch?v=P_IaSZYo0xc
-
-# Project Information
 ## Inspiration
 Every year, about 600,000 cases of cardiac arrest happen in the U.S., of which 395,000 cases occur outside of a hospital setting. Research has indicated that the amount of time between cardiac arrest and CPR commencing is directly correlated to survival rates. The problem: less than 3% of the U.S. population receives CPR training every year. We built this app with the purpose of helping people learn and practice effective CPR techniques. 
 
@@ -36,3 +24,15 @@ We learned a lot about algorithm time complexity, AngularJS, HTML and CSS develo
 
 ## What's next for CPR Coach
 We would love to integrate our code more with the current SDK. Although we can effectively get data from the Activ5, we do not have a very direct approach of interacting the SDK since we utilized a web-socket solution. We would like to clean up the overall integration of our project, and provide a more clean experience for the user. As of now, our project is more of a proof-of-concept than it is a fully-fledged product. We have a lot more room to develop, and we're excited to develop this project more.
+
+## Installation/Running Instructions
+- Clone our GitHub Repository onto your local desktop
+- Cd into the CPR Connector folder and run `npm install` to retrieve all necessary packages
+- Cd into the CPR Processor folder and run `npm install` to retrieve all necessary packages
+- Run `node index.js` in the CPR Processor folder to set up the recieving end of all Activ5 data, and to set up our user interface on `http://localhost:3030/`
+- Run `npm start` in the CPR Connector folder to start all communications with the Activ5, this is essentially running the Example javascript SDK app
+- Connect to the Activ5 using the website on `http://localhost:4200/`, and then navigate back to `http://localhost:3030/`. Everything should then be running.
+
+The reason that we almost have 2 projects running here is because CPR Connector is essentially a modified version of the Activ5 SDK JavaScript Example. It is tweaked in that it connects to a websocket that CPR Processor opens (this data pipe is on port 4300). CPR Processor recieves all data from the CPR Connector, and then has multiple scripts which control its use and its display. We essentially modified the Activ5 SDK JavaScript Example in such a way that it would connect to the Activ5 and simply forward our CPR Processor project any pressure readings from the Activ5.
+
+A video demoing the project and its features can be found on: https://www.youtube.com/watch?v=P_IaSZYo0xc
