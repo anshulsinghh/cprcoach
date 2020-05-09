@@ -1,5 +1,5 @@
 # CPR Coach - A CPR training tool built on Activ5
-This was a joint project between Zane Calini, Anshul Singh, Alec Valdez, and Julius Velasquez. We made this project for UC San Diego's SD Hacks 2019, and we won the Best Use of Activ5 Award.
+This was a joint project between Zane Calini, Anshul Singh, Alec Valdez, and Julius Velasquez. We made this project for UC San Diego's SD Hacks 2019, and we won the Best Use of Activ5 Award.  
 https://devpost.com/software/cpr-coach
 
 ## Inspiration
